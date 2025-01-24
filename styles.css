@@ -21,7 +21,8 @@ body {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
     padding: 40px;
-    width: 450px;
+    width: 100%;
+    max-width: 450px;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
     border: 3px solid #f06292;
     position: relative;
@@ -31,7 +32,7 @@ body {
     display: none;
     opacity: 0;
     transform: translateY(50px);
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Durasi transisi dikurangi menjadi 0.5 detik */
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .page.active {
@@ -98,7 +99,7 @@ body {
 /* Animasi untuk foto */
 .photo {
     width: 100%;  /* Lebar foto 100% dari kontainer */
-    height: 450px; /* Foto lebih besar */
+    height: auto; /* Foto akan menyesuaikan dengan aspek rasio */
     object-fit: cover; /* Memastikan foto terpotong dengan rapi jika diperlukan */
     margin-top: 20px;
     opacity: 0;
@@ -148,3 +149,43 @@ button:hover {
     background-color: #ffb800;
     transform: scale(1.05);
 }
+
+/* Media Queries untuk Responsif */
+@media (max-width: 768px) {
+    .card .title {
+        font-size: 2rem;
+    }
+
+    .card .message {
+        font-size: 1.1rem;
+    }
+
+    .photo {
+        height: 350px;  /* Sesuaikan tinggi foto pada layar lebih kecil */
+    }
+
+    button {
+        font-size: 1.1rem;
+        padding: 15px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card .title {
+        font-size: 1.8rem;
+    }
+
+    .card .message {
+        font-size: 1rem;
+    }
+
+    .photo {
+        height: 300px;  /* Sesuaikan lebih kecil untuk layar ponsel */
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+}
+
