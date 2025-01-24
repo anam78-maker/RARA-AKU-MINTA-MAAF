@@ -1,0 +1,150 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fce4ec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8bbd0 0%, #f48fb1 100%);
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 40px;
+    width: 450px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    border: 3px solid #f06292;
+    position: relative;
+}
+
+.page {
+    display: none;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Durasi transisi dikurangi menjadi 0.5 detik */
+}
+
+.page.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.page.outgoing {
+    opacity: 0;
+    transform: translateY(-50px);
+}
+
+.card {
+    perspective: 1000px;
+    display: inline-block;
+}
+
+.card .title {
+    font-size: 2.5rem;
+    color: #f06292;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.card .message {
+    font-size: 1.3rem;
+    color: #444;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.line {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.page.active .line:nth-child(1) {
+    animation: slideUp 1s ease-out forwards;
+}
+
+.page.active .line:nth-child(2) {
+    animation: slideUp 1s ease-out 0.5s forwards;
+}
+
+.page.active .line:nth-child(3) {
+    animation: slideUp 1s ease-out 1s forwards;
+}
+
+/* Animasi Slide Up */
+@keyframes slideUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animasi untuk foto */
+.photo {
+    width: 100%;  /* Lebar foto 100% dari kontainer */
+    height: 450px; /* Foto lebih besar */
+    object-fit: cover; /* Memastikan foto terpotong dengan rapi jika diperlukan */
+    margin-top: 20px;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: fadeInZoom 1s ease-out forwards;
+}
+
+/* Animasi untuk efek fade in dan zoom */
+@keyframes fadeInZoom {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Tombol Full Pink */
+button {
+    background-color: #f06292;
+    color: white;
+    border: none;
+    padding: 18px 35px;
+    font-size: 1.3rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+    width: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: #ec407a;
+    transform: scale(1.05);  /* Menambah efek pembesaran saat hover */
+}
+
+/* Tombol Restart */
+.restart-btn {
+    background-color: #ffcc00;
+}
+
+.restart-btn:hover {
+    background-color: #ffb800;
+    transform: scale(1.05);
+}
